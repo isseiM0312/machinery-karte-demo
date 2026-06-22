@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
   <title>デモ — 商用機械デジタルカルテ（社内限定）</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
   <div id="gate" class="gate">
@@ -35,11 +36,11 @@
 
       <div class="hero">
         <div class="gallery">
-          <div class="gallery-main" id="main-photo" style="background-image:url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=900&q=80')"></div>
+          <div class="gallery-main" id="main-photo" data-view="1"></div>
           <div class="gallery-thumbs">
-            <button type="button" class="thumb active" data-src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=900&q=80" aria-label="外観"></button>
-            <button type="button" class="thumb" data-src="https://images.unsplash.com/photo-1504328345606-3224a0637b7?w=900&q=80" aria-label="キャビン"></button>
-            <button type="button" class="thumb" data-src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=900&q=80" aria-label="整備後"></button>
+            <button type="button" class="thumb active" data-view="1" aria-label="外観"></button>
+            <button type="button" class="thumb" data-view="2" aria-label="キャビン"></button>
+            <button type="button" class="thumb" data-view="3" aria-label="整備後"></button>
           </div>
           <p class="gallery-note">※ 画像クリックで拡大表示（デモ）</p>
         </div>
@@ -106,6 +107,6 @@
       </footer>
     </main>
   </div>
-  <script src="app.js"></script>
+  <script src="./app.js"></script>
 </body>
 </html>

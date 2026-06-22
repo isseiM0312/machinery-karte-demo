@@ -13,7 +13,7 @@ function initGallery() {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.thumb').forEach((t) => t.classList.remove('active'));
       btn.classList.add('active');
-      main.style.backgroundImage = `url('${btn.dataset.src}')`;
+      main.dataset.view = btn.dataset.view;
     });
   });
 }
