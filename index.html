@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>デモ — 商用機械デジタルカルテ（社内限定）</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="gate" class="gate">
+    <div class="gate-card">
+      <p class="gate-label">Confidential Demo</p>
+      <h1>商用機械デジタルカルテ</h1>
+      <p class="gate-sub">Wanderlust Build 提案用デモ（社内管理画面イメージ）</p>
+      <form id="gate-form">
+        <label for="pw">パスワード</label>
+        <input id="pw" type="password" autocomplete="current-password" placeholder="共有されたパスワード">
+        <button type="submit">表示する</button>
+        <p id="gate-err" class="gate-err" hidden>パスワードが正しくありません</p>
+      </form>
+    </div>
+  </div>
+
+  <div id="app" class="app" hidden>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <span class="brand">Machinery Karte <small>DEMO</small></span>
+        <span class="badge">社内限定</span>
+      </div>
+    </header>
+
+    <main class="page">
+      <nav class="crumb"><a href="#">機械一覧</a> / 油圧ショベル SH125X-6</nav>
+
+      <div class="hero">
+        <div class="gallery">
+          <div class="gallery-main" id="main-photo" style="background-image:url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=900&q=80')"></div>
+          <div class="gallery-thumbs">
+            <button type="button" class="thumb active" data-src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=900&q=80" aria-label="外観"></button>
+            <button type="button" class="thumb" data-src="https://images.unsplash.com/photo-1504328345606-3224a0637b7?w=900&q=80" aria-label="キャビン"></button>
+            <button type="button" class="thumb" data-src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=900&q=80" aria-label="整備後"></button>
+          </div>
+          <p class="gallery-note">※ 画像クリックで拡大表示（デモ）</p>
+        </div>
+
+        <div class="summary">
+          <p class="status-pill repair">修理預り</p>
+          <h1>油圧ショベル <span>コマツ PC200-11</span></h1>
+          <p class="sub">管理No. MK-2024-0187 ｜ 最終更新 2026/06/18</p>
+          <dl class="quick">
+            <div><dt>現在状態</dt><dd>整備中（部品待ち）</dd></div>
+            <div><dt>保管場所</dt><dd>千葉倉庫 Bヤード</dd></div>
+            <div><dt>顧客</dt><dd>社内デモ機（預り修理）</dd></div>
+          </dl>
+          <div class="actions">
+            <button type="button" class="btn primary">状態を更新</button>
+            <button type="button" class="btn">添付を追加</button>
+          </div>
+        </div>
+      </div>
+
+      <section class="panel">
+        <h2>機械情報 <span class="code">PC200-11 · S/N KMT0A102T01234567</span></h2>
+        <table class="spec">
+          <tr><th>メーカー</th><td>コマツ</td><th>管理区分</th><td>修理預り機械</td></tr>
+          <tr><th>型式</th><td>PC200-11</td><th>製造年</th><td>2021年</td></tr>
+          <tr><th>シリアルNo.</th><td>KMT0A102T01234567</td><th>稼働時間</th><td>4,820 h</td></tr>
+          <tr><th>仕向地</th><td>欧州向け（新車）</td><th>入庫日</th><td>2026/05/22</td></tr>
+        </table>
+      </section>
+
+      <section class="panel">
+        <h2>主要仕様</h2>
+        <table class="spec">
+          <tr><th>エンジン</th><td>Komatsu SAA6D107E-3</td><th>出力</th><td>149 kW (200 PS)</td></tr>
+          <tr><th>操作重量</th><td>約 20.5 t</td><th>バケット容量</th><td>0.8 m³</td></tr>
+          <tr><th>最大掘削深度</th><td>6,690 mm</td><th>燃料</th><td>軽油</td></tr>
+        </table>
+      </section>
+
+      <div class="cols">
+        <section class="panel">
+          <h2>修理・整備履歴</h2>
+          <ul class="timeline">
+            <li><time>2026/06/15</time><strong>油圧ホース交換作業</strong><span>作業報告書 #WO-8841 · 担当：整備A</span></li>
+            <li><time>2026/06/02</time><strong>入庫検査・現状写真撮影</strong><span>初回点検 · 要確認：配管に錆</span></li>
+            <li><time>2026/05/22</time><strong>預り入庫</strong><span>顧客より修理預り · 千葉倉庫へ搬入</span></li>
+          </ul>
+        </section>
+
+        <section class="panel">
+          <h2>関連添付</h2>
+          <ul class="files">
+            <li><span class="ext pdf">PDF</span><div><strong>見積書_20260610_MK-0187.pdf</strong><span>別システム作成 · 2026/06/10</span></div></li>
+            <li><span class="ext pdf">PDF</span><div><strong>作業報告書_WO-8841.pdf</strong><span>整備記録 · 2026/06/15</span></div></li>
+            <li><span class="ext img">IMG</span><div><strong>入庫時_左側面.jpg</strong><span>写真 · 2026/06/02</span></div></li>
+          </ul>
+          <p class="panel-note">見積・請求の<b>作成</b>は既存システムのまま。本カルテへ添付で紐付け。</p>
+        </section>
+      </div>
+
+      <footer class="demo-foot">
+        <p>Wanderlust Build 提案デモ — 実在の機械・顧客データではありません</p>
+        <p>参考UI: トラックバンク型の詳細カルテレイアウト</p>
+      </footer>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
