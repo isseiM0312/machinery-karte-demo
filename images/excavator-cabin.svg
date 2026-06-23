@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="ну╙є√Mб">
+  <rect width="800" height="600" fill="#334155"/>
+  <rect x="0" y="480" width="800" height="120" fill="#1e293b"/>
+  <!-- cabin close -->
+  <rect x="120" y="120" width="360" height="280" rx="12" fill="#eab308"/>
+  <rect x="150" y="150" width="200" height="140" rx="8" fill="#64748b"/>
+  <rect x="160" y="160" width="90" height="60" rx="4" fill="#94a3b8"/>
+  <!-- hydraulic hoses -->
+  <path d="M480 200 C560 180, 620 240, 680 220" fill="none" stroke="#44403c" stroke-width="18"/>
+  <path d="M480 260 C560 280, 640 240, 700 300" fill="none" stroke="#57534e" stroke-width="14"/>
+  <ellipse cx="680" cy="220" rx="28" ry="28" fill="#78716c"/>
+  <ellipse cx="700" cy="300" rx="24" ry="24" fill="#92400e" opacity=".6"/>
+  <text x="24" y="36" font-family="sans-serif" font-size="22" fill="#e2e8f0">Mб ╖ Б║Н	</text>
+  <rect x="520" y="380" width="240" height="64" rx="8" fill="#fef3c7"/>
+  <text x="540" y="420" font-family="sans-serif" font-size="20" fill="#92400e">а ╣'█№╣д█ИЪ</text>
+</svg>

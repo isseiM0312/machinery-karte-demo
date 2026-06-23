@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="¹'·çÙë³">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#94a3b8"/>
+      <stop offset="100%" stop-color="#cbd5e1"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#78716c"/>
+      <stop offset="100%" stop-color="#57534e"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#sky)"/>
+  <rect y="420" width="800" height="180" fill="url(#ground)"/>
+  <ellipse cx="400" cy="430" rx="320" ry="24" fill="#000" opacity=".12"/>
+  <!-- tracks -->
+  <rect x="180" y="360" width="280" height="72" rx="18" fill="#292524"/>
+  <rect x="200" y="372" width="240" height="48" rx="12" fill="#44403c"/>
+  <!-- body -->
+  <path d="M260 340 L420 320 L440 260 L380 220 L300 230 L240 280 Z" fill="#eab308"/>
+  <path d="M300 230 L380 220 L400 180 L340 160 L280 190 Z" fill="#ca8a04"/>
+  <!-- arm -->
+  <path d="M420 280 L560 220 L620 180 L640 200 L580 260 L460 310 Z" fill="#eab308" stroke="#a16207" stroke-width="3"/>
+  <path d="M620 180 L720 140 L740 160 L660 220 L640 200 Z" fill="#ca8a04"/>
+  <!-- bucket -->
+  <path d="M720 140 L780 180 L760 240 L700 210 Z" fill="#57534e"/>
+  <!-- cabin -->
+  <rect x="320" y="250" width="90" height="70" rx="6" fill="#1e293b" opacity=".85"/>
+  <rect x="330" y="258" width="50" height="36" rx="4" fill="#64748b"/>
+  <text x="24" y="36" font-family="sans-serif" font-size="22" fill="#fff" opacity=".7">e«B · ætb</text>
+</svg>
