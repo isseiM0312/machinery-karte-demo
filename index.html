@@ -26,138 +26,97 @@
   <div id="app" class="app is-locked">
     <header class="topbar">
       <div class="topbar-inner">
-        <span class="brand">Machinery Karte <small>DEMO</small></span>
+        <a class="brand" href="#list">Machinery Karte <small>DEMO</small></a>
         <span class="badge">社内限定</span>
       </div>
     </header>
 
-    <main class="page">
-      <nav class="crumb"><a href="#">機械一覧</a> / 油圧ショベル SH125X-6</nav>
+    <!-- LIST -->
+    <main id="list-view" class="page" hidden>
+      <h1 class="list-page-title" id="list-title">社内 商用機械一覧</h1>
 
-      <div class="hero">
-        <div class="gallery">
-          <div class="gallery-main" id="main-photo" data-view="1"></div>
-          <div class="gallery-thumbs">
-            <button type="button" class="thumb active" data-view="1" aria-label="外観"></button>
-            <button type="button" class="thumb" data-view="2" aria-label="キャビン"></button>
-            <button type="button" class="thumb" data-view="3" aria-label="整備後"></button>
-          </div>
-          <p class="gallery-note">※ 画像クリックで拡大表示（デモ）</p>
+      <section class="search-panel">
+        <p class="search-panel-hd">条件で絞り込む</p>
+        <div class="chip-row">
+          <button type="button" class="chip-filter active" data-cat="">すべて</button>
+          <button type="button" class="chip-filter" data-cat="new">新車</button>
+          <button type="button" class="chip-filter" data-cat="used">中古</button>
+          <button type="button" class="chip-filter" data-cat="repair">修理預り</button>
+          <button type="button" class="chip-filter" data-cat="demo">デモ機</button>
         </div>
-
-        <div class="summary">
-          <p class="status-pill repair">修理預り</p>
-          <h1>油圧ショベル <span>コマツ PC200-11</span></h1>
-          <p class="sub">管理No. MK-2024-0187 ｜ 最終更新 2026/06/18</p>
-          <dl class="quick">
-            <div><dt>現在状態</dt><dd>整備中（部品待ち）</dd></div>
-            <div><dt>保管場所</dt><dd>千葉倉庫 Bヤード</dd></div>
-            <div><dt>顧客</dt><dd>社内デモ機（預り修理）</dd></div>
-          </dl>
-          <div class="actions">
-            <button type="button" class="btn primary">状態を更新</button>
-            <button type="button" class="btn">添付を追加</button>
+        <form id="search-form" class="search-form">
+          <input type="hidden" id="f-category" value="">
+          <label>メーカー
+            <select id="f-maker">
+              <option value="">すべて</option>
+              <option>コマツ</option>
+              <option>日立建機</option>
+              <option>ヤンマー</option>
+              <option>タダノ</option>
+              <option>デンヨー</option>
+              <option>Volvo</option>
+              <option>ボマグ</option>
+            </select>
+          </label>
+          <label>状態
+            <select id="f-status">
+              <option value="">すべて</option>
+              <option>整備中（部品待ち）</option>
+              <option>入庫済（販売前）</option>
+              <option>販売可</option>
+              <option>デモ稼働中</option>
+              <option>部品調達中</option>
+              <option>整備完了</option>
+              <option>通関待ち</option>
+              <option>保管中</option>
+            </select>
+          </label>
+          <label>保管拠点
+            <select id="f-location">
+              <option value="">すべて</option>
+              <option>千葉倉庫 Aヤード</option>
+              <option>千葉倉庫 Bヤード</option>
+              <option>千葉倉庫 Cヤード</option>
+              <option>東京支店 展示場</option>
+              <option>大阪倉庫</option>
+              <option>横浜港 仮置き</option>
+            </select>
+          </label>
+          <label class="grow">キーワード
+            <input id="f-keyword" type="search" placeholder="管理No. / 型式 / キーワード">
+          </label>
+          <div class="search-actions">
+            <button type="submit" class="btn primary">この条件で検索</button>
+            <button type="button" class="btn" id="reset-btn">条件クリア</button>
           </div>
-        </div>
-      </div>
-
-      <section class="panel">
-        <h2>機械情報 <span class="code">PC200-11 · S/N KMT0A102T01234567</span></h2>
-        <table class="spec">
-          <tr><th>メーカー</th><td>コマツ</td><th>管理区分</th><td>修理預り機械</td></tr>
-          <tr><th>型式</th><td>PC200-11</td><th>製造年</th><td>2021年</td></tr>
-          <tr><th>シリアルNo.</th><td>KMT0A102T01234567</td><th>稼働時間</th><td>4,820 h</td></tr>
-          <tr><th>仕向地</th><td>欧州向け（新車）</td><th>入庫日</th><td>2026/05/22</td></tr>
-        </table>
+        </form>
       </section>
 
-      <section class="panel">
-        <h2>主要仕様</h2>
-        <table class="spec">
-          <tr><th>エンジン</th><td>Komatsu SAA6D107E-3</td><th>出力</th><td>149 kW (200 PS)</td></tr>
-          <tr><th>操作重量</th><td>約 20.5 t</td><th>バケット容量</th><td>0.8 m³</td></tr>
-          <tr><th>最大掘削深度</th><td>6,690 mm</td><th>燃料</th><td>軽油</td></tr>
-        </table>
+      <section class="result-panel">
+        <div class="result-hd">
+          <h2>検索結果一覧</h2>
+          <p id="result-meta" class="result-meta"></p>
+        </div>
+        <div id="result-list" class="result-list"></div>
       </section>
-
-      <div class="cols">
-        <section class="panel">
-          <h2>修理・整備履歴</h2>
-          <ul class="timeline">
-            <li><time>2026/06/15</time><strong>油圧ホース交換作業</strong><span>作業報告書 #WO-8841 · 担当：整備A</span></li>
-            <li><time>2026/06/02</time><strong>入庫検査・現状写真撮影</strong><span>初回点検 · 要確認：配管に錆</span></li>
-            <li><time>2026/05/22</time><strong>預り入庫</strong><span>顧客より修理預り · 千葉倉庫へ搬入</span></li>
-          </ul>
-        </section>
-
-        <section class="panel">
-          <h2>関連添付</h2>
-          <ul class="files">
-            <li><span class="ext pdf">PDF</span><div><strong>見積書_20260610_MK-0187.pdf</strong><span>別システム作成 · 2026/06/10</span></div></li>
-            <li><span class="ext pdf">PDF</span><div><strong>作業報告書_WO-8841.pdf</strong><span>整備記録 · 2026/06/15</span></div></li>
-            <li><span class="ext img">IMG</span><div><strong>入庫時_左側面.jpg</strong><span>写真 · 2026/06/02</span></div></li>
-          </ul>
-          <p class="panel-note">見積・請求の<b>作成</b>は既存システムのまま。本カルテへ添付で紐付け。</p>
-        </section>
-      </div>
 
       <footer class="demo-foot">
         <p>Wanderlust Build 提案デモ — 実在の機械・顧客データではありません</p>
-        <p>参考UI: トラックバンク型の詳細カルテレイアウト</p>
+        <p>参考UI: トラックバンク型 一覧 → 詳細カルテ</p>
+      </footer>
+    </main>
+
+    <!-- DETAIL -->
+    <main id="detail-view" class="page" hidden>
+      <div id="detail-root"></div>
+      <footer class="demo-foot">
+        <p>Wanderlust Build 提案デモ — 実在の機械・顧客データではありません</p>
+        <p>参考UI: トラックバンク型 一覧 → 詳細カルテ</p>
       </footer>
     </main>
   </div>
-  <script>
-    (function () {
-      var PASS = 'wl-karte-2026';
-      var KEY = 'wl-machinery-karte-demo';
-      var gate = document.getElementById('gate');
-      var app = document.getElementById('app');
-      var form = document.getElementById('gate-form');
-      var input = document.getElementById('pw');
-      var btn = document.getElementById('gate-btn');
-      var err = document.getElementById('gate-err');
 
-      function initGallery() {
-        var main = document.getElementById('main-photo');
-        document.querySelectorAll('.thumb').forEach(function (el) {
-          el.addEventListener('click', function () {
-            document.querySelectorAll('.thumb').forEach(function (t) { t.classList.remove('active'); });
-            el.classList.add('active');
-            main.dataset.view = el.dataset.view;
-          });
-        });
-      }
-
-      function unlock() {
-        gate.classList.add('is-hidden');
-        app.classList.remove('is-locked');
-        initGallery();
-      }
-
-      function tryUnlock() {
-        var val = (input.value || '').trim();
-        if (val === PASS) {
-          sessionStorage.setItem(KEY, '1');
-          err.hidden = true;
-          unlock();
-          return true;
-        }
-        err.hidden = false;
-        return false;
-      }
-
-      if (sessionStorage.getItem(KEY) === '1') {
-        unlock();
-        return;
-      }
-
-      btn.addEventListener('click', tryUnlock);
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        tryUnlock();
-      });
-    })();
-  </script>
+  <script src="./data.js"></script>
+  <script src="./app.js"></script>
 </body>
 </html>
