@@ -17,13 +17,13 @@
       <form id="gate-form">
         <label for="pw">パスワード</label>
         <input id="pw" type="password" autocomplete="current-password" placeholder="共有されたパスワード">
-        <button type="submit">表示する</button>
+        <button type="button" id="gate-btn">表示する</button>
         <p id="gate-err" class="gate-err" hidden>パスワードが正しくありません</p>
       </form>
     </div>
   </div>
 
-  <div id="app" class="app" hidden>
+  <div id="app" class="app is-locked">
     <header class="topbar">
       <div class="topbar-inner">
         <span class="brand">Machinery Karte <small>DEMO</small></span>
@@ -107,6 +107,57 @@
       </footer>
     </main>
   </div>
-  <script src="./app.js"></script>
+  <script>
+    (function () {
+      var PASS = 'wl-karte-2026';
+      var KEY = 'wl-machinery-karte-demo';
+      var gate = document.getElementById('gate');
+      var app = document.getElementById('app');
+      var form = document.getElementById('gate-form');
+      var input = document.getElementById('pw');
+      var btn = document.getElementById('gate-btn');
+      var err = document.getElementById('gate-err');
+
+      function initGallery() {
+        var main = document.getElementById('main-photo');
+        document.querySelectorAll('.thumb').forEach(function (el) {
+          el.addEventListener('click', function () {
+            document.querySelectorAll('.thumb').forEach(function (t) { t.classList.remove('active'); });
+            el.classList.add('active');
+            main.dataset.view = el.dataset.view;
+          });
+        });
+      }
+
+      function unlock() {
+        gate.classList.add('is-hidden');
+        app.classList.remove('is-locked');
+        initGallery();
+      }
+
+      function tryUnlock() {
+        var val = (input.value || '').trim();
+        if (val === PASS) {
+          sessionStorage.setItem(KEY, '1');
+          err.hidden = true;
+          unlock();
+          return true;
+        }
+        err.hidden = false;
+        return false;
+      }
+
+      if (sessionStorage.getItem(KEY) === '1') {
+        unlock();
+        return;
+      }
+
+      btn.addEventListener('click', tryUnlock);
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        tryUnlock();
+      });
+    })();
+  </script>
 </body>
 </html>
